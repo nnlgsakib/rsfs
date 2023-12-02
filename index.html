@@ -2,10 +2,28 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="refresh" content="0;url=https://mainnet.mindscan.info">
-    <title>Redirecting...</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RSFS NOTEBOOK</title>
+    <script>
+        function redirectToInstagram() {
+            // List of Instagram profiles to redirect to
+            var profiles = [
+                
+            ];
+
+            // Get the currentProfile from localStorage
+            var currentProfile = parseInt(localStorage.getItem('currentProfile')) || 0;
+
+            // Redirect to the next profile
+            window.location.href = profiles[currentProfile];
+
+            // Update currentProfile for the next visit
+            currentProfile = (currentProfile + 1) % profiles.length;
+            localStorage.setItem('currentProfile', currentProfile.toString());
+        }
+    </script>
 </head>
-<body>
-    <p>If you are not redirected, <a href="https://mainnet.mindscan.info">click here</a>.</p>
+<body onload="redirectToInstagram()">
+    <p>If you are not redirected, <a href="#" onclick="redirectToInstagram()">click here</a>.</p>
 </body>
 </html>
